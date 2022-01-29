@@ -1,5 +1,6 @@
 from util import getEnviroment
 import redis
+import Sender
 
 env = getEnviroment.getEnvData()
 
