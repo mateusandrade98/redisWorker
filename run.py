@@ -1,6 +1,7 @@
 from util import getEnviroment
 import redis
 import Sender
+from rq import Queue
 
 env = getEnviroment.getEnvData()
 
