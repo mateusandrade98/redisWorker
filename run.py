@@ -4,6 +4,7 @@ import Sender
 
 env = getEnviroment.getEnvData()
 
+
 class Worker:
     def __init__(self):
         pass
@@ -23,10 +24,10 @@ class Worker:
         import sys
 
         with Connection():
-            qs = sys.argv[1:] or ['default']
-            w = WorkerModule(qs, connection=self.getConnection())
-            w.work()
-
+            redis = self.getConnection()
+            queue = Queue(connection=redis)
+            w = WorkerModule(queues=[queue], connection=redis)
+            w.work(with_scheduler=True)
 
 
 if __name__ == "__main__":
