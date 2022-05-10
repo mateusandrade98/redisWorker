@@ -22,7 +22,6 @@ class Worker:
         print("Wpp Worker Started....")
         from rq import Connection
         from rq import Worker as WorkerModule
-        import sys
 
         with Connection():
             redis = self.getConnection()

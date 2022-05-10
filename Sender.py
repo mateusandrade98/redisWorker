@@ -1,4 +1,5 @@
 import requests
+import aiohttp
 
 
 class Request:
@@ -40,7 +41,9 @@ class Request:
             except KeyError:
                 params = {}
 
-            requests.request(
+            Session = aiohttp.ClientSession()
+
+            await Session.request(
                 method=method,
                 url=url,
                 headers=headers,
